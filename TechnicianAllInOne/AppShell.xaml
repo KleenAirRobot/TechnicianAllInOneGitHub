@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="TechnicianAllInOne.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:TechnicianAllInOne"
+    Shell.FlyoutBehavior="Disabled"
+    Title="TechnicianAllInOne">
+
+    <ShellContent
+        Title="LogIn"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellContent
+        Title="SignUp"
+        ContentTemplate="{DataTemplate local:SignUp}"
+        Route="SignUp" />
+
+    <ShellContent
+        Title="Technician"
+        ContentTemplate="{DataTemplate local:TechnicianView}"
+        Route="TechnicianView" />
+
+    <ShellContent
+        Title="MissedServicePage"
+        ContentTemplate="{DataTemplate local:MissedServicePage}"
+        Route="MissedServicePage" />
+
+    <ShellContent
+        Title="ChangedServicePage"
+        ContentTemplate="{DataTemplate local:ChangedServicePage}"
+        Route="ChangedServicePage" />
+
+    <ShellContent
+        Title="ExpenseReportPage"
+        ContentTemplate="{DataTemplate local:ExpenseReportPage}"
+        Route="ExpenseReportPage" />
+
+</Shell>

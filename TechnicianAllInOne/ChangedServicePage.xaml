@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:TechnicianAllInOne.CustomControls"
+             x:Class="TechnicianAllInOne.ChangedServicePage"
+             Shell.NavBarIsVisible="False"
+             Title="ChangedServicePage">
+
+    <Grid RowDefinitions="1*,8*,1*">
+
+        <HorizontalStackLayout Margin="0,0,0,0" Padding="30" Spacing="10" HorizontalOptions="Center" >
+
+
+            <Label x:Name="lblReturn" Padding="0" FontSize="22" TextColor="DarkBlue" VerticalOptions="End" FontAttributes="Bold" Text="Return to Menu" Margin="0,0,0,-24"/>
+            <HorizontalStackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_For_MissedService"/>
+            </HorizontalStackLayout.GestureRecognizers>
+        </HorizontalStackLayout>
+
+        <Frame BackgroundColor="#cfd0d8" Grid.Row="0" HorizontalOptions="EndAndExpand"
+               Padding="0" 
+               Margin="0,-80,300,160"
+               HeightRequest="250" 
+               WidthRequest="250" 
+               CornerRadius="125">
+        </Frame>
+
+        <Frame BackgroundColor="DarkGreen" Grid.Row="0" HorizontalOptions="EndAndExpand"
+                Padding="0" 
+                Margin="0,-120,-120,40"
+                HeightRequest="250" 
+                WidthRequest="250" 
+                CornerRadius="125">
+        </Frame>
+
+        <VerticalStackLayout>
+            <Image Source="highrezlogo.png" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <Frame BackgroundColor="White"  
+               Grid.Row="1" 
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center"
+               Margin="0,0,0,0">
+            <ScrollView>
+                <VerticalStackLayout HorizontalOptions="Center">
+                    <Label x:Name="HeaderText" HorizontalOptions="Center" Text="Service Change Report" FontSize="28" FontAttributes="Bold" TextColor="Black" TextDecorations="Underline"/>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="dot.png" HeightRequest="25" WidthRequest="25" />
+                            <DatePicker x:Name="DateEntry" VerticalOptions="Center" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="name.png" HeightRequest="25" WidthRequest="25" />
+                            <Label x:Name="TechName"   VerticalOptions="Center" Text="Technicians Name" Grid.Column="2"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="name.png" HeightRequest="25" WidthRequest="25" />
+                            <Entry x:Name="CustomerEntry" MaxLength="45" VerticalOptions="Center" Placeholder="Customer Name" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="dot.png" HeightRequest="25" WidthRequest="25" />
+                            <Entry x:Name="AddressEntry" MaxLength="45" VerticalOptions="Center" Placeholder="Address of Service" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="dot.PNG" HeightRequest="25" WidthRequest="25" />
+                            <Entry x:Name="ReasonEntry" MaxLength="45" VerticalOptions="Center" Placeholder="Reason" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+                    <!-->Additions<-->
+                    <Label x:Name="lblAdd" Padding="10" HorizontalOptions="Center" Text="Filters to be Added" FontSize="22" FontAttributes="Bold" TextColor="Black" TextDecorations="Underline"/>
+
+                    <Frame Padding="10" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="*" ColumnSpacing="10">
+
+                            <Label x:Name="FilterAddition" HorizontalOptions="Start" Text="(Filter Size and Style)" FontSize="12" FontAttributes="Bold" TextColor="Black" />
+                            <Label x:Name="FilterALocation" HorizontalOptions="End" Text="(Location on Worksheet)" FontSize="12" FontAttributes="Bold" TextColor="Black" />
+                            
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="5" BackgroundColor="Transparent" BorderColor="Grey" CornerRadius="15">
+                        <Grid ColumnDefinitions="*" ColumnSpacing="10">
+                            
+                            <Editor x:Name="FilterAdditionEntry" BackgroundColor="White" MaxLength="45" VerticalOptions="Start" HorizontalOptions="Start"  Placeholder="00x00x0 Pleated" Grid.Column="1" WidthRequest="125"/>
+                            <Editor x:Name="FilterALocationEntry"  BackgroundColor="White" MaxLength="45" VerticalOptions="End" HorizontalOptions="End" Placeholder="Rooftop" Grid.Column="1" WidthRequest="125"/>
+
+                        </Grid>
+                    </Frame>
+                    <!-->Subtractions<-->
+                    <Label x:Name="lblSub" Padding="10" HorizontalOptions="Center" Text="Filters to be Subtracted" FontSize="22" FontAttributes="Bold" TextColor="Black" TextDecorations="Underline"/>
+
+                    <Frame Padding="10" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="*" ColumnSpacing="10">
+
+                            <Label x:Name="FilterSubtraction" HorizontalOptions="Start" Text="(Filter Size and Style)" FontSize="12" FontAttributes="Bold" TextColor="Black" />
+                            <Label x:Name="FilterSLocation" HorizontalOptions="End" Text="(Location on Worksheet)" FontSize="12" FontAttributes="Bold" TextColor="Black" />
+
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="5" BackgroundColor="Transparent" BorderColor="Grey" CornerRadius="15">
+                        <Grid ColumnDefinitions="*" ColumnSpacing="10">
+
+                            <Editor x:Name="FilterSubtractionEntry" BackgroundColor="White" MaxLength="45" VerticalOptions="Start" HorizontalOptions="Start"  Placeholder="00x00x0 Pleated" Grid.Column="1" WidthRequest="125"/>
+                            <Editor x:Name="FilterSLocationEntry" BackgroundColor="White" MaxLength="45" VerticalOptions="End" HorizontalOptions="End" Placeholder="Rooftop" Grid.Column="1" WidthRequest="125"/>
+
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="0" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="0">
+                        <Grid ColumnDefinitions="*" ColumnSpacing="10">
+
+                        </Grid>
+                    </Frame>
+                    <!-->Frames and Wires Section<-->
+                    <Frame Padding="10" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="*" ColumnSpacing="10">
+
+                            <Label x:Name="Frames" HorizontalOptions="Start" Text="Frames Needed" FontSize="18" FontAttributes="Bold" TextColor="Black" TextDecorations="Underline"/>
+                            <Label x:Name="Wire" HorizontalOptions="End" Text="Wires Needed" FontSize="18" FontAttributes="Bold" TextColor="Black" TextDecorations="Underline"/>
+
+                        </Grid>
+                    </Frame>
+                    <Frame Padding="5" BackgroundColor="Transparent" BorderColor="Grey" CornerRadius="15">
+                        <Grid ColumnDefinitions="*" ColumnSpacing="10">
+
+                            <Editor x:Name="FramesEntry" BackgroundColor="White" MaxLength="45" VerticalOptions="Start" HorizontalOptions="Start"  Placeholder="00x00x0 Pleated" Grid.Column="1" WidthRequest="125"/>
+                            <Editor x:Name="WireEntry" BackgroundColor="White" MaxLength="45" VerticalOptions="End" HorizontalOptions="End" Placeholder="00x00x0 Pleated" Grid.Column="1" WidthRequest="125"/>
+
+                        </Grid>
+                    </Frame>
+                    <!-->A frame for Spacing<-->
+                        <Frame Padding="0" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="0">
+                        <Grid ColumnDefinitions="*" ColumnSpacing="10">
+                        </Grid>
+                    </Frame>
+                    <!-->Change in frequency<-->
+                    <Label x:Name="lblFreq" Padding="10" HorizontalOptions="Center" Text="Change in Frequency" FontSize="22" FontAttributes="Bold" TextColor="Black" TextDecorations="Underline"/>
+
+                    <Frame Padding="10" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="*" ColumnSpacing="10">
+
+                            <Label x:Name="From" HorizontalOptions="Start" Text="(From?)" FontSize="12" FontAttributes="Bold" TextColor="Black" />
+                            <Label x:Name="To" HorizontalOptions="End" Text="(To?)" FontSize="12" FontAttributes="Bold" TextColor="Black" />
+
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="5" BackgroundColor="Transparent" BorderColor="Grey" CornerRadius="15">
+                        <Grid ColumnDefinitions="*" ColumnSpacing="10">
+
+                            <Entry x:Name="FromEntry" BackgroundColor="White" MaxLength="45" VerticalOptions="Start" HorizontalOptions="Start"  Placeholder="Example(weekly)" Grid.Column="1" WidthRequest="125"/>
+                            <Entry x:Name="ToEntry" BackgroundColor="White" MaxLength="45" VerticalOptions="End" HorizontalOptions="End" Placeholder="Example(weekly)" Grid.Column="1" WidthRequest="125"/>
+
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="0" BackgroundColor="Transparent" BorderColor="Transparent" CornerRadius="0">
+                        <Grid ColumnDefinitions="*" ColumnSpacing="10">
+
+                        </Grid>
+                    </Frame>
+
+                    <customControls:ButtonControl 
+                    x:Name="BtnSubmit"
+                    Tapped="BtnSubmit_Tapped"
+                    Text="Submit"                                             
+                    HorizontalOptions="Center"
+                    Padding="10"/>
+
+                    
+
+
+                    <HorizontalStackLayout Padding="30" HorizontalOptions="Center">
+                        
+                        <Label x:Name="lblEntries"  TextColor="Black" FontSize="28" FontAttributes="Bold" Text="Your Past Entries" Margin="0,0,0,-24"/>
+                        
+                    </HorizontalStackLayout>
+
+                    <Grid ColumnDefinitions="0,*" ColumnSpacing="20">
+
+                        <ListView x:Name="listView" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="listView_ItemTapped" VerticalOptions="Center" Grid.Column="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <VerticalStackLayout Padding="5">
+                                            <Label Text="{Binding V2_CustomerName}" FontSize="10" FontAttributes="Bold" />
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Label Grid.Column="1" Text="{Binding V2_Address}" FontSize="10"/>
+                                            </Grid>
+                                        </VerticalStackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+
+                </VerticalStackLayout>
+
+            </ScrollView>
+
+        </Frame>
+
+        <Frame BackgroundColor="#cfd0d8" 
+               Grid.Row="2" 
+               VerticalOptions="EndAndExpand"
+               HorizontalOptions="StartAndExpand"
+               Padding="0" 
+               Margin="0,0,0,-180"
+               HeightRequest="250" 
+               WidthRequest="250" 
+               CornerRadius="125">
+        </Frame>
+
+        <Frame BackgroundColor="DarkGreen" 
+               Grid.Row="2" 
+               VerticalOptions="EndAndExpand"
+               HorizontalOptions="StartAndExpand"
+               Padding="0" 
+               Margin="0,0,0,-200"
+               HeightRequest="250" 
+               WidthRequest="250" 
+               CornerRadius="125">
+        </Frame>
+
+        
+
+    </Grid>
+
+    
+
+</ContentPage>

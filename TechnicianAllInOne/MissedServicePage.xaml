@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:TechnicianAllInOne.CustomControls"
+             x:Class="TechnicianAllInOne.MissedServicePage"
+             Shell.NavBarIsVisible="False"
+             Title="MissedServicePage">
+
+    <Grid RowDefinitions="1*,8*,1*">
+
+        <HorizontalStackLayout Margin="0,0,0,0" Padding="30" Spacing="10" HorizontalOptions="Center" >
+
+
+            <Label x:Name="lblReturn" Padding="0" FontSize="22" TextColor="DarkBlue" VerticalOptions="End" FontAttributes="Bold" Text="Return to Menu" Margin="0,0,0,-24"/>
+            <HorizontalStackLayout.GestureRecognizers>
+                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_For_MissedService"/>
+            </HorizontalStackLayout.GestureRecognizers>
+        </HorizontalStackLayout>
+
+        <Frame BackgroundColor="#cfd0d8" Grid.Row="0" HorizontalOptions="EndAndExpand"
+               Padding="0" 
+               Margin="0,-80,85,190"
+               HeightRequest="250" 
+               WidthRequest="250" 
+               CornerRadius="125">
+        </Frame>
+
+        <Frame BackgroundColor="DarkRed" Grid.Row="0" HorizontalOptions="EndAndExpand"
+                Padding="0" 
+                Margin="0,-200,120,60"
+                HeightRequest="250" 
+                WidthRequest="250" 
+                CornerRadius="125">
+        </Frame>
+
+        <VerticalStackLayout>
+            <Image Source="highrezlogo.png" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <Frame BackgroundColor="White"  
+               Grid.Row="1" 
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center"
+               Margin="0,0,0,0">
+        <ScrollView>
+                <VerticalStackLayout HorizontalOptions="Center">
+                    <Label x:Name="HeaderText" HorizontalOptions="Center" Text="Missed Service Report" FontSize="28" FontAttributes="Bold" TextColor="Black" />
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="name.png" HeightRequest="25" WidthRequest="25" />
+                            <Label x:Name="TechName" VerticalOptions="Center" Text="Technicians Name" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="dot.png" HeightRequest="25" WidthRequest="25" />
+                            <DatePicker x:Name="DateEntry" VerticalOptions="Center" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="dot.png" HeightRequest="25" WidthRequest="25" />
+                            <Entry x:Name="CustomerEntry" MaxLength="45" VerticalOptions="Center" Placeholder="Customer Name" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="dot.png" HeightRequest="25" WidthRequest="25" />
+                            <Entry x:Name="AddressEntry" MaxLength="45" VerticalOptions="Center" Placeholder="Address of Service" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <ImageButton x:Name="ImgBtnEye" VerticalOptions="Center" Source="dot.PNG" HeightRequest="25" WidthRequest="25" />
+                            <Entry x:Name="InvoiceEntry" Keyboard="Numeric" MaxLength="30" VerticalOptions="Center" Placeholder="Invoice Number" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="15">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <ImageButton VerticalOptions="Center" Source="dot.PNG" HeightRequest="25" WidthRequest="25" />
+                            <Entry x:Name="ReasonEntry" MaxLength="45" VerticalOptions="Center" Placeholder="Reason" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="15">
+                        
+                    </Frame>
+
+                    <customControls:ButtonControl 
+                    x:Name="BtnSubmit"
+                    Tapped="BtnSubmit_Tapped"
+                    Text="Submit"                                             
+                    HorizontalOptions="Center"/>
+
+
+                    <HorizontalStackLayout Padding="30" HorizontalOptions="Center">
+                        <Label x:Name="lblEntries" TextColor="Black" FontSize="28" FontAttributes="Bold" Text="Your Previous Entries" Margin="0,0,0,-24"/>
+                    </HorizontalStackLayout>
+
+                    <Grid ColumnDefinitions="0,*" ColumnSpacing="20">
+
+                        <ListView x:Name="listView" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="listView_ItemTapped" VerticalOptions="Center" Grid.Column="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <VerticalStackLayout Padding="5">
+                                            <Label Text="{Binding V2_CustomerName}" FontSize="10" FontAttributes="Bold" />
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                    <ColumnDefinition Width="*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <Label Grid.Column="1" Text="{Binding V2_Invoice}" FontSize="10"/>
+                                                <Label Grid.Column="3" Text="{Binding V2_Date}" FontSize="10"/>
+                                                <Label Grid.Column="2" Text="{Binding V2_Address}" FontSize="10" FontAttributes="Bold"/>
+                                            </Grid>
+                                        </VerticalStackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </Grid>
+
+                </VerticalStackLayout>
+
+            </ScrollView>
+
+        </Frame>
+
+        <Frame BackgroundColor="#cfd0d8" 
+               Grid.Row="2" 
+               VerticalOptions="EndAndExpand"
+               HorizontalOptions="StartAndExpand"
+               Padding="0" 
+               Margin="0,0,0,-180"
+               HeightRequest="250" 
+               WidthRequest="250" 
+               CornerRadius="125">
+        </Frame>
+
+        <Frame BackgroundColor="DarkRed" 
+               Grid.Row="2" 
+               VerticalOptions="EndAndExpand"
+               HorizontalOptions="StartAndExpand"
+               Padding="0" 
+               Margin="0,0,0,-200"
+               HeightRequest="250" 
+               WidthRequest="250" 
+               CornerRadius="125">
+        </Frame>
+
+        
+
+    </Grid>
+
+    
+
+</ContentPage>

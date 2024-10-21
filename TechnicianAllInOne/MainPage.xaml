@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:customControls="clr-namespace:TechnicianAllInOne.CustomControls"
+             x:Class="TechnicianAllInOne.MainPage"
+             Shell.NavBarIsVisible="False"
+             Title="SignIn">
+
+    <Grid RowDefinitions="1*,8*,1*">
+
+            <Frame BackgroundColor="#cfd0d8" Grid.Row="0" HorizontalOptions="EndAndExpand"
+               Padding="0" 
+               Margin="0,-80,-80,0"
+               HeightRequest="250" 
+               WidthRequest="250" 
+               CornerRadius="125">
+            </Frame>
+
+            <Frame BackgroundColor="DarkBlue" Grid.Row="0" HorizontalOptions="EndAndExpand"
+                Padding="0" 
+                Margin="0,-120,-120,0"
+                HeightRequest="250" 
+                WidthRequest="250" 
+                CornerRadius="125">
+            </Frame>
+
+            <VerticalStackLayout>
+                <Image Source="highrezlogo.png" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center"/>
+            </VerticalStackLayout>
+
+            <Frame BackgroundColor="White"  
+               Grid.Row="1" 
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center"
+               Margin="0,0,0,0">
+
+                <VerticalStackLayout HorizontalOptions="Center">
+
+                    <Label Text="SIGN IN" FontSize="28" FontAttributes="Bold" TextColor="DarkBlue"/>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="0">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <Image VerticalOptions="Center" Source="name.PNG" HeightRequest="25" WidthRequest="25" />
+                            <Entry x:Name="Username" Keyboard="Email" AutomationId="Login" MaxLength="30" VerticalOptions="Center" Placeholder="Username" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="0">
+                        <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                            <ImageButton x:Name="eye" Clicked="EyeClicked" VerticalOptions="Center" Source="closed.PNG" HeightRequest="25" WidthRequest="25" />
+                            <Entry x:Name="Password" Keyboard="Default" AutomationId="Password" MaxLength="30" VerticalOptions="Center" Placeholder="Password" IsPassword="True" Grid.Column="1"/>
+                        </Grid>
+                    </Frame>
+
+                <customControls:ButtonControl 
+                x:Name="BtnSubmit"
+                Tapped="BtnSubmit_Tapped"
+                Text="Submit"                                             
+                HorizontalOptions="Center"/>
+                    
+                    <Label IsVisible="true" Padding="20" FontAttributes="Bold" Text="Forgot Password?" TextColor="white" HorizontalTextAlignment="Center" />
+
+                    <HorizontalStackLayout Spacing="20">
+
+                        <Label FontAttributes="Bold" 
+                           Text="Don't have an account?" 
+                           TextColor="Grey"
+                           VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Center"/>
+
+
+                        <Label x:Name="LblSignUp" Text="SIGN UP" FontSize="18" 
+                           FontAttributes="Bold" 
+                           TextColor="DarkBlue"
+                           VerticalTextAlignment="Center"
+                           HorizontalTextAlignment="Center"/>
+
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_For_SignUp" />
+                        </HorizontalStackLayout.GestureRecognizers>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+            </Frame>
+
+            <Frame BackgroundColor="#cfd0d8" Grid.Row="2" 
+               VerticalOptions="EndAndExpand"
+               HorizontalOptions="StartAndExpand"
+               Padding="0" 
+               Margin="0,0,0,-180"
+               HeightRequest="250" 
+               WidthRequest="250" 
+               CornerRadius="125">
+            </Frame>
+
+            <Frame BackgroundColor="DarkBlue" Grid.Row="2" 
+               VerticalOptions="EndAndExpand"
+               HorizontalOptions="StartAndExpand"
+               Padding="0" 
+               Margin="0,0,0,-200"
+               HeightRequest="250" 
+               WidthRequest="250" 
+               CornerRadius="125">
+            </Frame>
+
+
+
+        </Grid>
+
+</ContentPage>
+
+<!--this would go into the content page <ScrollView>
+        
+        <VerticalStackLayout
+            Padding="20,0"
+            Spacing="10">
+            
+            <Image
+                Source="hdlogo.png"
+                WidthRequest="380"
+                HeightRequest="240"
+                Aspect="Fill"
+                SemanticProperties.Description="A Clean Fresh Kleen Air Logo" />
+
+            <Label   
+                x:Name="LabelOne"
+                Text="Log In"
+                TextColor="Maroon"
+                FontAttributes="Bold"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Grid HorizontalOptions="Fill" BackgroundColor="white" VerticalOptions="Start">
+                <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition />
+                <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Label
+                Grid.Row="0"
+                Grid.Column="0" 
+                HorizontalOptions="End" 
+                VerticalOptions="End"
+                Text="Username:"
+                TextColor="Black"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1"/>
+
+                <Entry
+                x:Name="UserName"
+                Grid.Row="0"
+                Grid.Column="1" 
+                HorizontalOptions="Start" 
+                VerticalOptions="Start"
+                TextColor="Black"
+                MinimumWidthRequest="200"/>
+
+                <Label
+                Grid.Row="1"
+                Grid.Column="0" 
+                HorizontalOptions="End" 
+                VerticalOptions="Start"
+                Text="Password:"
+                TextColor="Black"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+                <Entry
+                x:Name="Password"
+                Grid.Row="1"
+                Grid.Column="1" 
+                HorizontalOptions="Start" 
+                VerticalOptions="Start"
+                TextColor="Black"
+                MinimumWidthRequest="200"/>
+
+            </Grid>
+
+            <Button
+            x:Name="CounterBtn"
+            BackgroundColor="DarkBlue"
+            Text="Submit" 
+            TextColor="White"
+            FontAttributes="Bold"
+            SemanticProperties.Hint="Counts the number of times you click"
+            Clicked="OnCounterClicked"
+            HorizontalOptions="Center" />
+
+            <Button
+                Grid.Row="1"
+                Grid.Column="0" 
+                HorizontalOptions="Center" 
+                Text="Request Password Reset"
+                TextColor="Blue"
+                FontSize="Small"
+                BackgroundColor="White"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+           
+
+        </VerticalStackLayout>
+    </ScrollView>-->
+

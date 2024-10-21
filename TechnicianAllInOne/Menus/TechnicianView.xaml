@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TechnicianAllInOne.TechnicianView"
+             Shell.NavBarIsVisible="False"
+             Title="TechnicianView">
+
+    <Grid RowDefinitions="1*,8*,1*">
+        <Frame BackgroundColor="#cfd0d8" Grid.Row="0" HorizontalOptions="EndAndExpand"
+               Padding="0" 
+               Margin="0,-80,-80,0"
+               HeightRequest="250" 
+               WidthRequest="250" 
+               CornerRadius="125">
+        </Frame>
+
+        <Frame BackgroundColor="DarkBlue" Grid.Row="0" HorizontalOptions="EndAndExpand"
+                Padding="0" 
+                Margin="0,-120,-120,0"
+                HeightRequest="250" 
+                WidthRequest="250" 
+                CornerRadius="125">
+        </Frame>
+
+        <VerticalStackLayout>
+            <Image Source="highrezlogo.png" 
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <Frame BackgroundColor="White"  
+               Grid.Row="1" 
+               VerticalOptions="CenterAndExpand"
+               HorizontalOptions="Center"
+               Margin="0,0,0,0">
+
+            <VerticalStackLayout HorizontalOptions="Center">
+                <Label x:Name="lblTask" Text="Choose a Task" FontSize="28" FontAttributes="Bold" TextColor="DarkBlue" />
+
+                <Frame Padding="10" BorderColor="Transparent" CornerRadius="0">
+                    <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                        <Image VerticalOptions="Center" Source="dot.png" HeightRequest="25" WidthRequest="25" />
+                        <Button x:Name="BtnServChange" Clicked="ServChange" BackgroundColor="DarkBlue" VerticalOptions="Center" Text="Create a Service Change Report" Grid.Column="1"/>
+                    </Grid>
+                </Frame>
+
+                <Frame Padding="10" BorderColor="Transparent" CornerRadius="0">
+                    <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                        <Image VerticalOptions="Center" Source="dot.png" HeightRequest="25" WidthRequest="25" />
+                        <Button x:Name="BtnMissServRep" Clicked="MissServRep" BackgroundColor="DarkBlue" VerticalOptions="Center" Text="Report a Missed Service" Grid.Column="1"/>
+                    </Grid>
+                </Frame>
+
+                <Frame Padding="10" BorderColor="Transparent" CornerRadius="0">
+                    <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                        <Image VerticalOptions="Center" Source="dot.png" HeightRequest="25" WidthRequest="25" />
+                        <Button x:Name="BtnRecExp" Clicked="RecExp" BackgroundColor="DarkBlue" VerticalOptions="Center" Text="Record an Expense" Grid.Column="1"/>
+                    </Grid>
+                </Frame>
+
+                <!--<Frame Padding="10" BorderColor="Transparent" CornerRadius="0">
+                    <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                        <Image VerticalOptions="Center" Source="dot.png" HeightRequest="25" WidthRequest="25" />
+                        <Button x:Name="BtnAltServRep" Clicked="AltServRep" BackgroundColor="DarkGrey" VerticalOptions="Center" Text="Alter A Change Report" Grid.Column="1"/>
+                    </Grid>
+                </Frame>
+
+                <Frame Padding="10" BorderColor="Transparent" CornerRadius="0">
+                    <Grid ColumnDefinitions="25,*" ColumnSpacing="10">
+                        <Image VerticalOptions="Center" Source="dot.png" HeightRequest="25" WidthRequest="25" />
+                        <Button x:Name="BtnAltExpRep" Clicked="AltExpRep" BackgroundColor="DarkGrey" VerticalOptions="Center" Text="Alter An Expense Report" Grid.Column="1"/>
+                    </Grid>
+                </Frame>-->
+
+                <!--Frame Padding="10" BorderColor="Transparent">
+                    <Button x:Name="BtnLogOut" Clicked="LogOut" BackgroundColor="Firebrick" CornerRadius="10" HeightRequest="50" WidthRequest="204" Text="Log Out" FontSize="20" FontAttributes="Bold"/>
+                </Frame-->
+
+                <HorizontalStackLayout Padding="30" Spacing="10" HorizontalOptions="Center" >
+
+                    <Label x:Name="lblReturn" TextColor="Gray" VerticalOptions="End" FontAttributes="Bold" Text="Log Out" Margin="0,0,0,-24"/>
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_For_TechnicianView"/>
+                    </HorizontalStackLayout.GestureRecognizers>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+                        
+        </Frame>
+
+
+        <Frame BackgroundColor="#cfd0d8" 
+               Grid.Row="2" 
+               VerticalOptions="EndAndExpand"
+               HorizontalOptions="StartAndExpand"
+               Padding="0" 
+               Margin="0,0,0,-180"
+               HeightRequest="250" 
+               WidthRequest="250" 
+               CornerRadius="125">
+        </Frame>
+
+        <Frame BackgroundColor="DarkBlue" 
+               Grid.Row="2" 
+               VerticalOptions="EndAndExpand"
+               HorizontalOptions="StartAndExpand"
+               Padding="0" 
+               Margin="0,0,0,-200"
+               HeightRequest="250" 
+               WidthRequest="250" 
+               CornerRadius="125">
+        </Frame>
+
+
+
+    </Grid>
+
+</ContentPage>

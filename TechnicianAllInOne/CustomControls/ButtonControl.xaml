@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Frame xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Name="this"
+       BackgroundColor="DarkBlue"
+       CornerRadius="10"
+       Padding="10"
+       x:Class="TechnicianAllInOne.CustomControls.ButtonControl">
+    <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+        <ActivityIndicator HeightRequest="15" WidthRequest="15" 
+                           Color="White" 
+                           IsRunning="True"
+                           IsVisible="{Binding Source={x:Reference this},Path=IsInProgress}"/>
+        <Label x:Name="LblButtonText"
+               TextColor="White" 
+               Text="{Binding Source={x:Reference this},Path=Text}"
+               HeightRequest="35"
+               MinimumWidthRequest="250"
+               FontSize="20"
+               FontAttributes="Bold"
+               VerticalTextAlignment="Center" 
+               HorizontalTextAlignment="Center"/>
+    </HorizontalStackLayout>
+    
+    <Frame.Triggers>
+        <DataTrigger TargetType="Frame" Binding="{Binding Source={x:Reference this}, Path=IsInProgress}" Value="True">
+            <Setter Property="IsEnabled" Value="False"/>
+        </DataTrigger>
+        <DataTrigger TargetType="Frame" Binding="{Binding Source={x:Reference this}, Path=IsInProgress}" Value="False">
+            <Setter Property="IsEnabled" Value="True"/>
+        </DataTrigger>
+    </Frame.Triggers>
+    <Frame.GestureRecognizers>
+        <TapGestureRecognizer Command="{Binding Source={x:Reference this},Path=Command}"
+                              Tapped = "TapGestureRecognizer_Tapped" />
+    </Frame.GestureRecognizers>
+</Frame>
